@@ -1,0 +1,49 @@
+
+   
+h1 {
+    font-family: 'Black Ops One', cursive;
+    color: black;
+}
+
+button {
+    font-family: 'Black Ops One', cursive;
+}
+
+header {
+    padding: 2em;
+    background-color: #FF4081;
+    margin-top: 2em;
+    text-align: center;
+    color: #fff;
+}
+
+.quote {
+    font-size: 2em;
+}
+
+.btn-large {
+    margin: 0.5em;
+}
+
+.card {
+    text-align: center;
+    width: 45em;
+}
+
+.new-quote-button {
+    background-color: #FF4081;
+    border-color: #FF4081;
+}
+
+#button:hover {
+    background-color: #FF4081;
+}
+
+
+#newAuteurSection {
+    font-size: 15px;
+}
+
+#newQuoteSection {
+    font-weight: bolder;
+}

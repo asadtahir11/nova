@@ -1,0 +1,23 @@
+mat-toolbar {
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 64px;
+  #logo {
+    font-family: 'Black Ops One', cursive;
+    font-size: 45px;
+};
+  // a {
+  //   text-decoration: none;
+  //   &.active-link {
+  //     color: white;
+  //   }
+  //   span {
+  //     margin-left: 24px;
+  //   }
+  // }
+}
+
+.font {
+   color: white;
+}

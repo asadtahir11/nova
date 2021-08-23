@@ -1,0 +1,39 @@
+<mat-toolbar >
+  <span>
+    <a routerLink = "/">
+      <!-- <span id="logo" class="font color">NOVA</span> -->
+      <img src="/assets/nova navbar.svg">
+    </a>
+  </span>
+  <span>
+    <a
+      *ngIf="isAuthenticated"
+      routerLinkActive="active-link"
+      routerLink="/posts"
+    >
+      <span class="font">Articles</span>
+    </a>
+    <a
+      *ngIf="!isAuthenticated"
+      routerLinkActive="active-link"
+      routerLink="/login"
+    >
+      <span class="font">Connexion</span>
+    </a>
+    <a
+      *ngIf="isAuthenticated"
+      (click)="logout()"
+      routerLinkActive="active-link"
+      routerLink="/login"
+    >
+      <span class="font">Deconnexion</span>
+    </a>
+    <a
+      *ngIf="!isAuthenticated"
+      routerLinkActive="active-link"
+      routerLink="/signup"
+    >
+      <span class="font">Inscription</span>
+    </a>
+  </span>
+</mat-toolbar>
