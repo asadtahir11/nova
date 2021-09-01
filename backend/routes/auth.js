@@ -8,6 +8,8 @@ const User = require('../models/user');
 
 const authController = require('../controllers/auth');
 
+const auth = require('../middleware/auth');
+
 router.post(
   '/signup',
   [
@@ -28,5 +30,6 @@ router.post(
 );
 
 router.post('/login', authController.login);
+
 
 module.exports = router;

@@ -37,7 +37,7 @@ exports.updateOne = async (req, res, next) => {
       title: title,
       body: body 
     };
-    const resultat = await Post.update(id , post);
+    const resultat = await Post.update(req.params.id , post);
     res.status(201).json(resultat);
   } catch (err) {
     if (!err.statusCode) {

@@ -13,6 +13,7 @@ import { ErrorHandlerService } from "./error-handler.service";
 })
 export class PostService {
   private url = "http://localhost:3000/post/";
+  postId: Pick<Post, "id">
 
 
   httpOptions: { headers: HttpHeaders } = {
@@ -32,6 +33,13 @@ export class PostService {
       );
   }
   
+  fetchOne(postId): Observable<Post[]> {
+    return this.http
+      .get<Post[]>(`${this.url}/${postId}`, { responseType: "json" })
+      .pipe(
+        catchError(this.errorHandlerService.handleError<Post[]>("fetchOne", []))
+      );
+  };
 
   createPost(
     formData: Partial<Post>,
@@ -48,11 +56,15 @@ export class PostService {
       );
   }
 
-  deletePost(postId: Pick<Post, "id">): Observable<{}> {
+  deletePost(postId): Observable<{}> {
     return this.http
       .delete<Post>(`${this.url}/${postId}`, this.httpOptions)
       .pipe(
         catchError(this.errorHandlerService.handleError<Post>("deletePost"))
       );
   }
+
+
+
+  
 }

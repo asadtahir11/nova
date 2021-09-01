@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'posts';
+  ngOnInit() {
+    $(window).on('load', function(event) {
+      $('.preloader').delay(500).fadeOut(500);
+  });
+  }
 }
+
+

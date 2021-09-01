@@ -17,4 +17,9 @@ module.exports = class User {
       [user.name, user.email, user.password]
     );
   }
+
+
 };
+
+
+

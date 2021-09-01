@@ -23,6 +23,8 @@ import { CreatePostComponent } from "./components/create-post/create-post.compon
 
 
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
+import { PostViewComponent } from './components/post-view/post-view.component';
+import { PostIdPipe } from './pipe/post-id.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { AuthInterceptorService } from "./services/auth-interceptor.service";
     LoginComponent,
     HomeComponent,
     PostsComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    PostViewComponent,
+    PostIdPipe,
   
   ],
   imports: [

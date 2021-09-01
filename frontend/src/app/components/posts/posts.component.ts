@@ -1,9 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 
 import { Observable } from "rxjs";
+import { Router } from "@angular/router";
 
 import { PostService } from "src/app/services/post.service";
 import { AuthService } from "src/app/services/auth.service";
+import { AdminService } from "src/app/services/admin.service"; 
 
 import { Post } from "src/app/models/Post";
 import { User } from "src/app/models/User";
@@ -16,20 +18,27 @@ import { User } from "src/app/models/User";
 export class PostsComponent implements OnInit {
   posts$: Observable<Post[]>;
   userId: Pick<User, "id">;
-  postRandom: Observable<Post[]>;
+  userRole: string;
+  postId: Pick<Post, "id">;
+  assad;
+  postsfiltrer;
 
-  
   constructor(
     private postService: PostService,
-    private authService: AuthService
+    private authService: AuthService,
+    private adminService: AdminService,
+    private router : Router,
     ) {}
     
     ngOnInit(): void {
+  
       this.posts$ = this.fetchAll();
       this.userId = this.authService.userId;
-    
+      this.userRole = "basic";
+      this.assad = 36;
+      this.postsfiltrer = this.posts$
     }
-    
+
     fetchAll(): Observable<Post[]> {
       return this.postService.fetchAll();
     }
@@ -41,9 +50,13 @@ export class PostsComponent implements OnInit {
     }
   
     
-  delete(postId: Pick<Post, "id">): void {
+  delete(postId): void {
     this.postService
       .deletePost(postId)
       .subscribe(() => (this.posts$ = this.fetchAll()));
+  }
+
+  onSelect(post) {
+      this.router.navigate(['/posts', post.id ]);
   }
 }

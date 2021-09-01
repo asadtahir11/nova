@@ -27,6 +27,6 @@ router.post(
 router.delete('/:id', auth, postsController.deletePost);
 
 
-router.put('/update', auth , postsController.updateOne );
+router.put('/:id', auth , postsController.updateOne );
 
 module.exports = router;
