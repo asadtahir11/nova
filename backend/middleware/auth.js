@@ -20,8 +20,17 @@ module.exports = (req, res, next) => {
     error.statusCode = 401;
     throw error;
   }
+
+  // if (!decodedToken.role === "admin") {
+  //   const error = new Error('Not admin!');
+  //   error.statusCode = 401;
+  //   throw error;
+  // }
+
   req.isLoggedIn = true;
   req.userId = decodedToken.userId;
   req.email = decodedToken.email;
+  req.role = decodedToken.role;
+
   next();
 };

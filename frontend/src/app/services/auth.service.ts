@@ -17,6 +17,7 @@ export class AuthService {
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
   userId: Pick<User, "id">;
   email: Pick<User, "email">;
+  roleAs: string;
 
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({ "Content-Type": "application/json" }),
@@ -62,4 +63,9 @@ export class AuthService {
         )
       );
   }
+
+  getRole() {
+        this.roleAs = localStorage.getItem('role');
+        return this.roleAs;
+      }
 }
