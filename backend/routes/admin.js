@@ -10,35 +10,36 @@ const adminController = require('../controllers/admin');
 
 
 const auth = require('../middleware/auth');
+const authorization = require('../middleware/authorization');
 
   
 // Gerer les utilisateurs 
 
-router.get('/users', auth , adminController.fetchAllUsers);
+router.get('/users', auth , authorization,  adminController.fetchAllUsers);
 
-router.get('/users/:id', auth, adminController.fetchOneUser);
+router.get('/users/:id', auth, authorization, adminController.fetchOneUser);
 
-router.delete('/users/:id', auth, adminController.deleteUser);
+router.delete('/users/:id', auth, authorization, adminController.deleteUser);
 
-router.put('/users/:id', auth , adminController.updateUser );
+router.put('/users/:id', auth , authorization, adminController.updateUser );
 
 
 // Gérer les cours 
 
-router.post(
+ router.post(
     '/cours',
     [
-      auth,
+      auth, authorization,
       body('title').trim().isLength({ min: 5 }).not().isEmpty(),
       body('body').trim().isLength({ min: 10 }).not().isEmpty(),
       body('user').trim().not().isEmpty(),
     ],
     adminController.postCour
-  );
+);
   
-  router.delete('/cours/:id', auth, adminController.deleteCour);
+router.delete('/cours/:id', auth, authorization, adminController.deleteCour);
   
   
-  router.put('/cours/:id', auth , adminController.updateOne );
+router.put('/cours/:id', auth , authorization, adminController.updateOne );
 
 module.exports = router;

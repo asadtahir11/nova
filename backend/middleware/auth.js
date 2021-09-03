@@ -32,5 +32,6 @@ module.exports = (req, res, next) => {
   req.email = decodedToken.email;
   req.role = decodedToken.role;
 
+  
   next();
 };
