@@ -8,6 +8,8 @@ const postsRoutes = require('./routes/posts');
 
 const adminRoutes = require('./routes/admin');
 
+const coursRoutes = require('./routes/cours');
+
 const errorController = require('./controllers/error');
 
 const app = express();
@@ -37,6 +39,9 @@ app.use('/auth', authRoutes);
 app.use('/post', postsRoutes);
 
 app.use('/admin', adminRoutes);
+
+app.use('/cours', coursRoutes);
+
 
 app.use(errorController.get404);
 
