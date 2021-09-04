@@ -25,6 +25,7 @@ import { CreatePostComponent } from "./components/create-post/create-post.compon
 import { AuthInterceptorService } from "./services/auth-interceptor.service";
 import { PostViewComponent } from './components/post-view/post-view.component';
 import { PostIdPipe } from './pipe/post-id.pipe';
+import { UpdatePostComponent } from './components/update-post/update-post.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { PostIdPipe } from './pipe/post-id.pipe';
     CreatePostComponent,
     PostViewComponent,
     PostIdPipe,
+    UpdatePostComponent,
   
   ],
   imports: [

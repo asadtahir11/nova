@@ -1,0 +1,27 @@
+<p>update-post works! {{ number }} </p>
+
+
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="onSubmit(number,form.value)"
+    novalidate
+  >
+    <mat-form-field>
+      <mat-label> Titre </mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Contenu</mat-label>
+      <input matInput formControlName="body" />
+    </mat-form-field>
+    <button
+      color="accent"
+      [disabled]="!form.valid"
+      mat-raised-button
+      type="submit"
+    >
+      <span> Ajouter </span>
+    </button>
+  </form>
+  

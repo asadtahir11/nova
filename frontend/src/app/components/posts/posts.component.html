@@ -2,18 +2,21 @@
 
 
 <
-<mat-card (click)="onSelect(post)" *ngFor="let post of posts$ | async">
+<mat-card *ngFor="let post of posts$ | async">
   <button *ngIf="  post.user === userId " mat-icon-button>
     <mat-icon (click)="delete(post.id)" color="warn">delete</mat-icon>
   </button>
+  <button *ngIf="  post.user === userId " mat-icon-button>
+    <mat-icon (click)="update(post)" color="primary">edit</mat-icon>
+  </button>
   <div class="post-title">
-    {{ post.title }}
+    <span (click)="onSelect(post)">{{ post.title }}</span>
   </div>
-  <div class="post-meta">
-    {{ post.created }}
+  <div class="post-meta"> 
+  <span (click)="onSelect(post)"> {{ post.created }} </span>
   </div>
   <div class="post-body">
-    {{ post.body }}
+  <span (click)="onSelect(post)">{{ post.body }} </span>
   </div>
 </mat-card>
 

@@ -58,5 +58,10 @@ export class PostsComponent implements OnInit {
 
   onSelect(post) {
       this.router.navigate(['/posts', post.id ]);
-  }
+  };
+
+  update(post) {
+    this.router.navigate(['/posts/update', post.id ]);
+};
+  
 }

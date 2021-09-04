@@ -13,7 +13,7 @@ import { ErrorHandlerService } from "./error-handler.service";
 })
 export class PostService {
   private url = "http://localhost:3000/post/";
-  postId: Pick<Post, "id">
+  postId: Pick<Post, "id">;
 
 
   httpOptions: { headers: HttpHeaders } = {
@@ -64,9 +64,9 @@ export class PostService {
       );
   }
 
-  update(post: Post): Observable<any> {
+  updatePost( postId , formData: Partial<Post>): Observable<Post> {
     return this.http
-      .put<Post>(this.url, post, this.httpOptions)
+      .put<Post>(this.url, {id: postId, title: formData.title, body: formData.body}, this.httpOptions)
       .pipe(catchError(this.errorHandlerService.handleError<any>("updatePost")));
   }
 
